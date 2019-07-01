@@ -33,7 +33,7 @@ This will export the converted file to `/path/to/my/file-swift-converted.csv`
 
 
 ### 3. Command line (Swift)
-If you have Xcode 10+ (or Swift 5+) installed, you can compile and run the code from the command line via:
+If you have Xcode 10+ (or Swift 5+) installed, you can compile and run [main.swift](https://github.com/paulofierro/B2FA/blob/master/Butterfield2FreeAgent/main.swift) from the command line via:
 
 ```
 swift main.swift /path/to/my/file.csv
