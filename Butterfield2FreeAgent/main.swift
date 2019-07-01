@@ -119,7 +119,7 @@ let transactions = try lines
         [singleExpression, doubleExpression].forEach { expression in
             let range = NSRange(location: 0, length: string.count)
             expression
-                .enumerateMatches(in: string, options:[], range: range) { (result, flags, pointer) in
+                .enumerateMatches(in: string, options: [], range: range) { result, _, _ in
                     guard let resultRange = result?.range,
                         let range = Range(resultRange, in: string) else {
                         return
