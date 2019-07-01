@@ -23,7 +23,7 @@ The included `AutomatorWorkflow` needs to be modified to point to wherever you p
 10. The converted file will be exported to the same folder as `file-swift-converted.csv`
 
 ### 2. Command line (binary)
-You can run the script from the command line, by [downloading the binary in the `bin` folder]() (built on macOS Mojave) and running it via:
+You can run the script from the command line, by [downloading the binary in the `bin` folder](https://github.com/paulofierro/B2FA/blob/master/bin/Butterfield2FreeAgent) (built on macOS Mojave) and running it via:
 
 ```
 /path/to/Butterfield2FreeAgent /path/to/my/file.csv
