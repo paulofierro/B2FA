@@ -97,8 +97,10 @@ guard let outputURL = URL(string: outputPath) else {
 let contents = try String(contentsOf: pathURL)
 let lines = contents.split(separator: "\n")
 
+// [HACK!!!]
 // For some reason I can't get this to match quite right, as \\d+ doesn't work for the thousands
-// so we do two expressions, one for single and another for double. Not been paid a triple yet...
+// so we do two expressions, one for single thousand values (1,000) and another for double (12,000).
+/// Not been paid a triple yet...
 let singleExpression = try NSRegularExpression(pattern: "\"\\d,\\d+\\.\\d\\d\"", options: [])
 let doubleExpression = try NSRegularExpression(pattern: "\"\\d\\d,\\d+\\.\\d\\d\"", options: [])
 
@@ -113,7 +115,7 @@ let transactions = try lines
         guard !ignoreLine else {
             return nil
         }
-        // Convert "XY,ABC.DE" to "XYABC.DE", as otherwise
+        // Convert "12,345.67" to "12345.67", as otherwise
         // this will screw up the comma-based separation later.
         var string = String(line)
         [singleExpression, doubleExpression].forEach { expression in
