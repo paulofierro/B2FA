@@ -149,7 +149,7 @@ let convertedLines = transactions
         return [transaction.formattedTransactionDate, value, transaction.description].joined(separator: ",")
     }
     .joined(separator: "\n")
-    + "\n" // Add a file newline
+    + "\n" // Add a newline at the EOF
 
 // Write to file
 do {
