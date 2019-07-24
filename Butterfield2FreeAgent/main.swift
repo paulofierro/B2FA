@@ -97,10 +97,8 @@ guard let outputURL = URL(string: outputPath) else {
 let contents = try String(contentsOf: pathURL)
 let lines = contents.split(separator: "\n")
 
-// [HACK!!!]
 // For some reason I can't get this to match quite right, as \\d+ doesn't work for the thousands
-// so we do two expressions, one for single thousand values (1,000) and another for double (12,000).
-/// Not been paid a triple yet...
+// so we do two expressions, one for single and another for double. Not been paid a triple yet...
 let singleExpression = try NSRegularExpression(pattern: "\"\\d,\\d+\\.\\d\\d\"", options: [])
 let doubleExpression = try NSRegularExpression(pattern: "\"\\d\\d,\\d+\\.\\d\\d\"", options: [])
 
@@ -115,13 +113,13 @@ let transactions = try lines
         guard !ignoreLine else {
             return nil
         }
-        // Convert "12,345.67" to "12345.67", as otherwise
+        // Convert "XY,ABC.DE" to "XYABC.DE", as otherwise
         // this will screw up the comma-based separation later.
         var string = String(line)
         [singleExpression, doubleExpression].forEach { expression in
             let range = NSRange(location: 0, length: string.count)
             expression
-                .enumerateMatches(in: string, options: [], range: range) { result, _, _ in
+                .enumerateMatches(in: string, options:[], range: range) { (result, flags, pointer) in
                     guard let resultRange = result?.range,
                         let range = Range(resultRange, in: string) else {
                         return
@@ -145,11 +143,16 @@ let transactions = try lines
 // Create a newline-delimited string that contain all the transactions in the format we need them
 let convertedLines = transactions
     .map { transaction -> String in
-        let value = transaction.isDebit ? "-" + transaction.debit : transaction.credit
+        let value: String
+        if transaction.isDebit {
+            value = transaction.debit.contains("-") ? transaction.debit : "-" + transaction.debit
+        } else {
+            value = transaction.credit
+        }
         return [transaction.formattedTransactionDate, value, transaction.description].joined(separator: ",")
     }
     .joined(separator: "\n")
-    + "\n" // Add a newline at the EOF
+    + "\n" // Add a file newline
 
 // Write to file
 do {
