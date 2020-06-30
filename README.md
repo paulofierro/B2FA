@@ -1,6 +1,6 @@
 # ButterfieldToFreeAgent
 
-A Swift command-line application that converts a CSV of transactions exported from Butterfield Online banking to a CSV format that is accepted by FreeAgent.com.
+A Swift command-line application that converts a CSV of transactions exported from [Butterfield Online](http://www.butterfieldgroup.com/) banking to a CSV format that is accepted by FreeAgent.com.
 
 This is a port of a [Ruby version I wrote a few years ago](https://github.com/paulofierro/ButterfieldToFreeAgent).
 
