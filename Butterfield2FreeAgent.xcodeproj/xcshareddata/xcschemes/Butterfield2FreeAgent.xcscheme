@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3AC77C6422CA4B35008F20A0"
-               BuildableName = "Butterfield2FreeAgent"
-               BlueprintName = "Butterfield2FreeAgent"
+               BuildableName = "b2fa"
+               BlueprintName = "b2fa"
                ReferencedContainer = "container:Butterfield2FreeAgent.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,14 +45,14 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3AC77C6422CA4B35008F20A0"
-            BuildableName = "Butterfield2FreeAgent"
-            BlueprintName = "Butterfield2FreeAgent"
+            BuildableName = "b2fa"
+            BlueprintName = "b2fa"
             ReferencedContainer = "container:Butterfield2FreeAgent.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/paulo/Desktop/10397493_1561989188011.CSV"
+            argument = "/Users/paulo/Development/B2FA/sample.csv"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
@@ -68,8 +68,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3AC77C6422CA4B35008F20A0"
-            BuildableName = "Butterfield2FreeAgent"
-            BlueprintName = "Butterfield2FreeAgent"
+            BuildableName = "b2fa"
+            BlueprintName = "b2fa"
             ReferencedContainer = "container:Butterfield2FreeAgent.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

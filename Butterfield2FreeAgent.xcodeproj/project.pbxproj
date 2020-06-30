@@ -3,11 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3AC77C6922CA4B35008F20A0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC77C6822CA4B35008F20A0 /* main.swift */; };
+		3AC77C6922CA4B35008F20A0 /* B2FA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC77C6822CA4B35008F20A0 /* B2FA.swift */; };
+		3AF9A0A724ABA1B800D7455F /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF9A0A624ABA1B800D7455F /* Transaction.swift */; };
+		3AF9A0AA24ABA24B00D7455F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF9A0A924ABA24B00D7455F /* String.swift */; };
+		3AF9A0AD24ABA5A600D7455F /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 3AF9A0AC24ABA5A600D7455F /* ArgumentParser */; };
+		3AF9A0AF24ABAC6E00D7455F /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF9A0AE24ABAC6E00D7455F /* Collection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +27,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3AC77C6522CA4B35008F20A0 /* Butterfield2FreeAgent */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Butterfield2FreeAgent; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AC77C6822CA4B35008F20A0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		3AC77C6522CA4B35008F20A0 /* b2fa */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = b2fa; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AC77C6822CA4B35008F20A0 /* B2FA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = B2FA.swift; sourceTree = "<group>"; };
+		3AF9A0A624ABA1B800D7455F /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		3AF9A0A924ABA24B00D7455F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		3AF9A0AE24ABAC6E00D7455F /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AF9A0AD24ABA5A600D7455F /* ArgumentParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,7 +57,7 @@
 		3AC77C6622CA4B35008F20A0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3AC77C6522CA4B35008F20A0 /* Butterfield2FreeAgent */,
+				3AC77C6522CA4B35008F20A0 /* b2fa */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,17 +65,28 @@
 		3AC77C6722CA4B35008F20A0 /* Butterfield2FreeAgent */ = {
 			isa = PBXGroup;
 			children = (
-				3AC77C6822CA4B35008F20A0 /* main.swift */,
+				3AF9A0A824ABA24300D7455F /* Extensions */,
+				3AC77C6822CA4B35008F20A0 /* B2FA.swift */,
+				3AF9A0A624ABA1B800D7455F /* Transaction.swift */,
 			);
 			path = Butterfield2FreeAgent;
+			sourceTree = "<group>";
+		};
+		3AF9A0A824ABA24300D7455F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3AF9A0AE24ABAC6E00D7455F /* Collection.swift */,
+				3AF9A0A924ABA24B00D7455F /* String.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3AC77C6422CA4B35008F20A0 /* Butterfield2FreeAgent */ = {
+		3AC77C6422CA4B35008F20A0 /* b2fa */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3AC77C6C22CA4B35008F20A0 /* Build configuration list for PBXNativeTarget "Butterfield2FreeAgent" */;
+			buildConfigurationList = 3AC77C6C22CA4B35008F20A0 /* Build configuration list for PBXNativeTarget "b2fa" */;
 			buildPhases = (
 				3AC77C6122CA4B35008F20A0 /* Sources */,
 				3AC77C6222CA4B35008F20A0 /* Frameworks */,
@@ -77,9 +96,12 @@
 			);
 			dependencies = (
 			);
-			name = Butterfield2FreeAgent;
+			name = b2fa;
+			packageProductDependencies = (
+				3AF9A0AC24ABA5A600D7455F /* ArgumentParser */,
+			);
 			productName = Butterfield2FreeAgent;
-			productReference = 3AC77C6522CA4B35008F20A0 /* Butterfield2FreeAgent */;
+			productReference = 3AC77C6522CA4B35008F20A0 /* b2fa */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -106,11 +128,14 @@
 				Base,
 			);
 			mainGroup = 3AC77C5C22CA4B35008F20A0;
+			packageReferences = (
+				3AF9A0AB24ABA5A600D7455F /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+			);
 			productRefGroup = 3AC77C6622CA4B35008F20A0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3AC77C6422CA4B35008F20A0 /* Butterfield2FreeAgent */,
+				3AC77C6422CA4B35008F20A0 /* b2fa */,
 			);
 		};
 /* End PBXProject section */
@@ -120,7 +145,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AC77C6922CA4B35008F20A0 /* main.swift in Sources */,
+				3AF9A0AA24ABA24B00D7455F /* String.swift in Sources */,
+				3AF9A0A724ABA1B800D7455F /* Transaction.swift in Sources */,
+				3AC77C6922CA4B35008F20A0 /* B2FA.swift in Sources */,
+				3AF9A0AF24ABAC6E00D7455F /* Collection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +212,7 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -237,6 +266,7 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -247,7 +277,6 @@
 				DEVELOPMENT_TEAM = NG69HBMD6R;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -258,7 +287,6 @@
 				DEVELOPMENT_TEAM = NG69HBMD6R;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -274,7 +302,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3AC77C6C22CA4B35008F20A0 /* Build configuration list for PBXNativeTarget "Butterfield2FreeAgent" */ = {
+		3AC77C6C22CA4B35008F20A0 /* Build configuration list for PBXNativeTarget "b2fa" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3AC77C6D22CA4B35008F20A0 /* Debug */,
@@ -284,6 +312,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3AF9A0AB24ABA5A600D7455F /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3AF9A0AC24ABA5A600D7455F /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3AF9A0AB24ABA5A600D7455F /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3AC77C5D22CA4B35008F20A0 /* Project object */;
 }
