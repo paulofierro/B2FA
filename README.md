@@ -8,7 +8,7 @@ The format is explained here: http://www.freeagent.com/support/kb/banking/file-f
 
 ## Running the app
 
-You can run the script from the command line, by [downloading the binary in the `bin` folder](https://github.com/paulofierro/B2FA/blob/master/bin/b2fa) (built on macOS 10.15.5 (Catalina) with Swift 5.3) and running it via:
+You can run the script from the command line, by [downloading the latest release](https://github.com/paulofierro/B2FA/releases) and running it via:
 
 ```
 b2fa /path/to/my/file.csv
