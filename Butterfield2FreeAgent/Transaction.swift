@@ -13,7 +13,7 @@ struct Transaction {
     
     /// Defines the list of columns found in the CSV file
     enum Column: Int {
-        case transactionDate, valueDate, reference, description, debitAmount, creditAmount, balance
+        case transactionDate, valueDate, description, debitAmount, creditAmount, balance, reference
     }
     
     let transactionDate: Date
