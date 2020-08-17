@@ -45,6 +45,7 @@ extension B2FA {
         // so we do two expressions, one for single and another for double. Not been paid a triple yet...
         let singleExpression = try NSRegularExpression(pattern: "\"\\d,\\d+\\.\\d\\d\"", options: [])
         let doubleExpression = try NSRegularExpression(pattern: "\"\\d\\d,\\d+\\.\\d\\d\"", options: [])
+        let quoteExpression = try NSRegularExpression(pattern: "\"(.*)\"", options: [])
 
         // Remove the non-transaction lines, and create a list of Transaction objects
         var ignoreLine = true
@@ -62,7 +63,7 @@ extension B2FA {
                 // Convert "XY,ABC.DE" to "XYABC.DE", as otherwise
                 // this will screw up the comma-based separation later.
                 var string = String(line)
-                [singleExpression, doubleExpression].forEach { expression in
+                [singleExpression, doubleExpression, quoteExpression].forEach { expression in
                     let range = NSRange(location: 0, length: string.count)
                     expression
                         .enumerateMatches(in: string, options:[], range: range) { result, flags, pointer in
@@ -86,7 +87,10 @@ extension B2FA {
                 return string
             }
             .map { line -> Transaction in
-                let values = line.split(separator: ",")
+                // If lines don't have a debit or crebit the value is empty which results in ",,"
+                // in the transaction line. Unfortunately split() removes this element which results
+                // in out of bounds exceptsions, so insert a 0
+                let values = line.replacingOccurrences(of: ",,", with: ",0.00,").split(separator: ",")
                 return try Transaction(with: values)
             }
         return transactions

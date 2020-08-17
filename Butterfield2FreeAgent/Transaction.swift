@@ -13,7 +13,7 @@ struct Transaction {
     
     /// Defines the list of columns found in the CSV file
     enum Column: Int {
-        case transactionDate, valueDate, reference, description, debitAmount, creditAmount, balance
+        case transactionDate, valueDate, description, debitAmount, creditAmount, balance, reference
     }
     
     let transactionDate: Date
@@ -64,7 +64,7 @@ private extension Transaction {
     
     static var inputDateFormatter: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy"
+        formatter.dateFormat = "dd MM yyyy"
         formatter.locale = Locale(identifier: "en_US_POSIX")
         return formatter
     }
