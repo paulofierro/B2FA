@@ -86,7 +86,10 @@ extension B2FA {
                 return string
             }
             .map { line -> Transaction in
-                let values = line.split(separator: ",")
+                // If lines don't have a debit or crebit the value is empty which results in ",,"
+                // in the transaction line. Unfortunately split() removes this element which results
+                // in out of bounds exceptsions, so insert a 0
+                let values = line.replacingOccurrences(of: ",,", with: ",0.00,").split(separator: ",")
                 return try Transaction(with: values)
             }
         return transactions
