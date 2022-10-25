@@ -8,6 +8,7 @@
 
 import ArgumentParser
 import Foundation
+import PFToolbox
 
 @main
 struct B2FA: ParsableCommand {
@@ -28,7 +29,7 @@ struct B2FA: ParsableCommand {
             .converted()
             .write(to: outputPath)
         
-        print("Converted file and saved as \(outputPath).")
+        log.info("Converted file and saved as \(outputPath).")
     }
 }
 
@@ -42,9 +43,10 @@ extension B2FA {
         let lines = contents.split(separator: "\n")
         
         // For some reason I can't get this to match quite right, as \\d+ doesn't work for the thousands
-        // so we do two expressions, one for single and another for double. Not been paid a triple yet...
+        // so we do three expressions.
         let singleExpression = try NSRegularExpression(pattern: "\"\\d,\\d+\\.\\d\\d\"", options: [])
         let doubleExpression = try NSRegularExpression(pattern: "\"\\d\\d,\\d+\\.\\d\\d\"", options: [])
+        let tripleExpression = try NSRegularExpression(pattern: "\"\\d\\d\\d,\\d+\\.\\d\\d\"", options: [])
         let quoteExpression = try NSRegularExpression(pattern: "\"(.*)\"", options: [])
 
         // Remove the non-transaction lines, and create a list of Transaction objects
@@ -63,7 +65,7 @@ extension B2FA {
                 // Convert "XY,ABC.DE" to "XYABC.DE", as otherwise
                 // this will screw up the comma-based separation later.
                 var string = String(line)
-                [singleExpression, doubleExpression, quoteExpression].forEach { expression in
+                [singleExpression, doubleExpression, tripleExpression, quoteExpression].forEach { expression in
                     let range = NSRange(location: 0, length: string.count)
                     expression
                         .enumerateMatches(in: string, options:[], range: range) { result, flags, pointer in
@@ -90,7 +92,12 @@ extension B2FA {
                 // If lines don't have a debit or crebit the value is empty which results in ",,"
                 // in the transaction line. Unfortunately split() removes this element which results
                 // in out of bounds exceptsions, so insert a 0
-                let values = line.replacingOccurrences(of: ",,", with: ",0.00,").split(separator: ",")
+                let values = line
+                    .replacingOccurrences(of: ",,", with: ",0.00,")
+                    .split(separator: ",")
+                    .map {
+                        String($0)
+                    }
                 return try Transaction(with: values)
             }
         return transactions

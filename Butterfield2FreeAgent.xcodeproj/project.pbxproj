@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3AC77C6922CA4B35008F20A0 /* B2FA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC77C6822CA4B35008F20A0 /* B2FA.swift */; };
+		3AE1ED4F29072AAA00AA8247 /* PFToolbox in Frameworks */ = {isa = PBXBuildFile; productRef = 3AE1ED4E29072AAA00AA8247 /* PFToolbox */; };
 		3AF9A0A724ABA1B800D7455F /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF9A0A624ABA1B800D7455F /* Transaction.swift */; };
 		3AF9A0AA24ABA24B00D7455F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF9A0A924ABA24B00D7455F /* String.swift */; };
 		3AF9A0AD24ABA5A600D7455F /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 3AF9A0AC24ABA5A600D7455F /* ArgumentParser */; };
@@ -39,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AE1ED4F29072AAA00AA8247 /* PFToolbox in Frameworks */,
 				3AF9A0AD24ABA5A600D7455F /* ArgumentParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +101,7 @@
 			name = b2fa;
 			packageProductDependencies = (
 				3AF9A0AC24ABA5A600D7455F /* ArgumentParser */,
+				3AE1ED4E29072AAA00AA8247 /* PFToolbox */,
 			);
 			productName = Butterfield2FreeAgent;
 			productReference = 3AC77C6522CA4B35008F20A0 /* b2fa */;
@@ -111,7 +114,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1410;
 				ORGANIZATIONNAME = "Jadehopper Ltd";
 				TargetAttributes = {
 					3AC77C6422CA4B35008F20A0 = {
@@ -130,6 +133,7 @@
 			mainGroup = 3AC77C5C22CA4B35008F20A0;
 			packageReferences = (
 				3AF9A0AB24ABA5A600D7455F /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+				3AE1ED4D29072AAA00AA8247 /* XCRemoteSwiftPackageReference "PFToolbox" */,
 			);
 			productRefGroup = 3AC77C6622CA4B35008F20A0 /* Products */;
 			projectDirPath = "";
@@ -189,6 +193,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -206,7 +211,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -251,6 +256,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -262,7 +268,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -277,6 +283,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = NG69HBMD6R;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -288,6 +295,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = NG69HBMD6R;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -318,17 +326,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3AE1ED4D29072AAA00AA8247 /* XCRemoteSwiftPackageReference "PFToolbox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/paulofierro/PFToolbox";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		3AF9A0AB24ABA5A600D7455F /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-argument-parser";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.0;
+				minimumVersion = 1.1.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3AE1ED4E29072AAA00AA8247 /* PFToolbox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3AE1ED4D29072AAA00AA8247 /* XCRemoteSwiftPackageReference "PFToolbox" */;
+			productName = PFToolbox;
+		};
 		3AF9A0AC24ABA5A600D7455F /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3AF9A0AB24ABA5A600D7455F /* XCRemoteSwiftPackageReference "swift-argument-parser" */;

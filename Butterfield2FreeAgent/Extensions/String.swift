@@ -24,10 +24,10 @@ extension String {
 }
 
 
-extension Substring {
+extension String {
     /// Remove whitespace, newlines and quotes
     var trimmed: String {
-        return String(self)
+        return self
             .trimmingCharacters(in: .whitespacesAndNewlines)
             .replacingOccurrences(of: "\"", with: "")
     }

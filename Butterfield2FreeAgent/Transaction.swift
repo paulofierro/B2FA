@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PFToolbox
 
 /// The structure of a parsed transaction object
 struct Transaction {
@@ -36,11 +37,19 @@ struct Transaction {
         return Self.outputDateFormatter.string(from: valueDate)
     }
 
-    init(with values: [String.SubSequence]) throws {
+    init(with values: [String]) throws {
         
         // Trim the value for a specific column
-        let trimValue: ((Column)) -> String = { column in
-            return values[column.rawValue].trimmed
+        let trimValue: (Column) -> String = { column in
+            guard let value = values[safeIndex: column.rawValue] else {
+                switch column {
+                case .reference:
+                    return "No reference"
+                default:
+                    fatalError("Column \(column) has no data")
+                }
+            }
+            return value.trimmed
         }
         
         // Format the dates
@@ -62,17 +71,19 @@ struct Transaction {
 
 private extension Transaction {
     
+    private static let locale = Locale(identifier: "en_US_POSIX")
+    
     static var inputDateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd MM yyyy"
-        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.locale = locale
         return formatter
     }
 
     static var outputDateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
-        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.locale = locale
         return formatter
     }
 }

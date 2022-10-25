@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1200"
+   LastUpgradeVersion = "1410"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -52,7 +52,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/paulo/Development/B2FA/sample.csv"
+            argument = "/Users/paulo/Desktop/butterfield/1666630872264.csv"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
